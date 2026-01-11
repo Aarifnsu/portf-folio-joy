@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ShoppingBag } from "lucide-react";
+import { CartDrawer } from "./CartDrawer";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
+    { name: "Shop", href: "#shop" },
     { name: "Services", href: "#services" },
     { name: "Portfolio", href: "#portfolio" },
     { name: "Testimonials", href: "#testimonials" },
@@ -37,8 +39,9 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
+          {/* CTA Button & Cart */}
+          <div className="hidden lg:flex items-center gap-4">
+            <CartDrawer />
             <Button className="gradient-bg text-primary-foreground hover:opacity-90 transition-opacity">
               Start Your Project
             </Button>
